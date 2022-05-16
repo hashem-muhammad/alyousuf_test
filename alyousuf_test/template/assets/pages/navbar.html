@@ -1,0 +1,29 @@
+{% load static %}
+
+<head>
+    <link href='{%static "assets/css/bootstrap.min.css"%}' rel="stylesheet">
+</head>
+
+<nav class="main-header navbar navbar-expand navbar-dark">
+    <a class="navbar-brand" href="{% url 'home'%}">Alyousuf - assignment</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="False" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+      <ul class="navbar-nav mr-auto">
+        {% if user.is_authenticated %}
+        
+        <li class="nav-item">
+          <a class="nav-link" href="#">Welcome, {{user.email}}</a>
+        </li>
+  
+        {% else %}
+  
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'login' %}">Login</a>
+        </li>
+  
+        {% endif %}
+      </ul>
+    </div>
+  </nav>

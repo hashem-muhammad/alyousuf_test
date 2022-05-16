@@ -1,0 +1,50 @@
+{% extends 'assets/pages/base.html' %}
+
+<!--Header Section-->
+{%block headerTitle %}
+    <h1>{{ title }}</h1>
+{%endblock headerTitle%}
+
+<!--Main Section-->
+{% block content %}
+{% for i in response %}
+<div class="card" style="width:'10%';">
+    
+    <div class="card-body">
+      <h5 class="card-header font-weight-bold mb-3">{{i.title}}</h5>
+      <img class="card-img-top img-flud w-75" src="{{i.image}}" alt="Card image cap">
+      <p class="card-footer">{{i.posted_date}}</p>
+      <p class="card-text">
+          {{i.details}}
+        </p>
+    </div>
+  </div>
+  {%endfor%}
+
+  {% if response.has_other_pages %}
+
+  <ul class="pagination">
+    {% if response.has_previous %}
+      <li class="page-item"><a a class="page-link" href="?page={{ response.previous_page_number }}">&laquo;</a></li>
+    {% else %}
+      <li class="disabled"><span>&laquo;</span></li>
+    {% endif %}
+    
+
+    {% for i in response.paginator.page_range %}
+      {% if response.number == i %}
+        <li class="page-item active"> <a class="page-link" href="#">{{ i }}</a><span class="sr-only">(current)</span></li>
+      {% else %}
+        <li class="page-item"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
+      {% endif %}
+    {% endfor %}
+
+
+    {% if response.has_next %}
+      <li class="page-item"><a a class="page-link" href="?page={{ response.next_page_number }}">&raquo;</a></li>
+    {% else %}
+      <li class="disabled"><span>&raquo;</span></li>
+    {% endif %}
+    </ul>
+    {% endif %}
+    {%endblock content%}

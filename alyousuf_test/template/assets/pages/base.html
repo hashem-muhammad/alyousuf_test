@@ -1,0 +1,45 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='{%static "assets/css/bootstrap.min.css"%}' rel="stylesheet">
+    <title>
+        {% block title %}
+        {{ page_title|default:"Alyousuf" }}
+        {% endblock title %}
+    </title>
+</head>
+<body>
+    <nav>
+        {% include 'assets/pages/navbar.html' %}
+    </nav>
+    {% include 'assets/pages/sidebar.html' %}
+    <div class="content-wrapper">
+        <section class="content">
+            {%block headerTitle %} 
+            {%endblock headerTitle%}
+            <!-- Default box -->
+            <div class="card card-solid">
+              <div class="card-body">
+                {% block content %}
+                
+                {% endblock content %}
+                </div>
+            </div>
+        </section>
+        
+    </div>
+    
+    
+    
+    <footer>
+        {% include 'assets/pages/footer.html' %}
+    </footer>
+    
+    <script src='{% static "assets/js/bootstrap.bundle.min.js" %}'></script>
+</body>
+</html>

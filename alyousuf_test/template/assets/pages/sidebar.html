@@ -1,0 +1,57 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="{% static 'assets/plugins/fontawesome-free/css/all.min.css' %}">
+  <!-- SweetAlert2 -->
+  <link rel="stylesheet" href="{% static 'assets/plugins/sweetalert2/sweetalert2.min.css' %}">
+  <!-- Toastr -->
+  <link rel="stylesheet" href="{%static 'assets/plugins/toastr/toastr.min.css' %}">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="{%static 'assets/dist/css/adminlte.min.css' %}">
+</head>
+<body>
+     <!-- Main Sidebar Container -->
+  <aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <!-- Sidebar Menu -->
+      <nav class="mt-2">
+        
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu">
+
+          <li class="nav-item">
+            <a href="{% url 'content'%}" class="nav-link">
+              <p>See Posts</p>
+            </a>
+          </li>
+          {% if user.is_authenticated %}
+          <li class="nav-item">
+            <a href="{% url 'upload_csv'%}" class="nav-link">
+              <p>Upload File</p>
+            </a>
+          </li>
+
+        </ul>
+        {% else %}
+        <li class="nav-item">
+          <a href="#" class="nav-link ">
+            <p class="text-sm">you should login first to upload file</p>
+          </a>
+        </li>
+        {% endif %}
+      </nav>
+      <!-- /.sidebar-menu -->
+    </div>
+    <!-- /.sidebar -->
+  </aside>
+  <script src='{% static "assets/js/script.js" %}'></script>
+</body>
+</html>

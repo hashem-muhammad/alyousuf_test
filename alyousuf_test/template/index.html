@@ -1,0 +1,52 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='{%static "assets/css/bootstrap.min.css"%}' rel="stylesheet">
+    <title>Alyousuf - assignment</title>
+</head>
+<body>
+    <!-- Header -->
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark text-white">
+        <div class="container">
+            <a href="#" class="navbar-brand">Alyousuf - assignment</a>
+            
+            <button 
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#mainmenu"
+            >
+            <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="mainmenu">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a href="{% url 'login' %}" class="nav-link">Login</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main -->
+    <section class="bg-dark text-light text-center py-4 vh-100">
+        <div class="container">
+            <div class="d-sm-flex align-items-center justify-content-center">
+                <div class="py-3">
+                    <h1>Welcom to assignment <span class="text-info">solution</span></h1>
+                    <p class="lead">By Hashem Muhammad</p>
+                    <a href="{% url 'content' %}" class="btn btn-info">Get Started</a>
+                </div>
+                <img class="img-flud w-50" src="{% static 'assets/img/main4.svg' %}" alt="Main Image">
+            </div>
+        </div>
+        <div class="bg-dark text-light text-center py-5 lead">Thanks for your time</div>
+    </section>
+    
+    <script src='{% static "assets/js/bootstrap.bundle.min.js" %}'></script>
+    
+</body>
+</html>
